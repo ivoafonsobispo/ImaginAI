@@ -1,4 +1,4 @@
-module dreampicai
+module imaginai
 
 go 1.22.0
 

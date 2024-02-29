@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"dreampicai/views/home"
+	"imaginai/views/home"
 	"net/http"
 )
 

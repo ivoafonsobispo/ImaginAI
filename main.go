@@ -1,8 +1,8 @@
 package main
 
 import (
-	handler "dreampicai/handlers"
 	"embed"
+	handler "imaginai/handlers"
 	"log"
 	"log/slog"
 	"net/http"

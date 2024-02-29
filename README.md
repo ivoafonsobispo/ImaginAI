@@ -1,2 +1,2 @@
-# dreampicai
+# ImaginAI 
 GO + HTMX + TEMPL

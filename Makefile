@@ -1,5 +1,5 @@
 run: build
-	@./bin/dreampicai
+	@./bin/imaginai
 
 install:
 	@go install github.com/a-h/templ/cmd/templ@latest
@@ -13,7 +13,7 @@ install:
 build:
 	tailwindcss -i views/css/app.css -o public/styles.css
 	@templ generate view
-	@go build -o bin/dreampicai
+	@go build -o bin/imaginai
 
 up: ## Database migrate up
 	@go run cmd/migrate/main.go up

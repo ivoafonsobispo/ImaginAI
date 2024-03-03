@@ -4,7 +4,13 @@ import (
 	"imaginai/models"
 	"log/slog"
 	"net/http"
+
+	"github.com/a-h/templ"
 )
+
+func render(r *http.Request, w http.ResponseWriter, component templ.Component) error {
+	return component.Render(r.Context(), w)
+}
 
 func getAuthenticatedUser(r *http.Request) models.AuthenticatedUser {
 	if user, ok := r.Context().Value(models.UserContextKey).(models.AuthenticatedUser); ok {

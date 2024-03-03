@@ -3,6 +3,7 @@ package main
 import (
 	"embed"
 	handler "imaginai/handlers"
+	"imaginai/pkg/sb"
 	"log"
 	"log/slog"
 	"net/http"
@@ -26,6 +27,7 @@ func main() {
 	router.Handle("/*", http.StripPrefix("/", http.FileServer(http.FS(FS))))
 	router.Get("/", handler.Make(handler.HandleHomeIndex))
 	router.Get("/login", handler.Make(handler.HandleLoginIndex))
+	router.Post("/login", handler.Make(handler.HandleLoginCreate))
 
 	port := os.Getenv("HTTP_LISTEN_ADDR")
 
@@ -34,5 +36,9 @@ func main() {
 }
 
 func initEverything() error {
-	return godotenv.Load()
+	if err := godotenv.Load(); err != nil {
+		return err
+	}
+
+	return sb.Init()
 }

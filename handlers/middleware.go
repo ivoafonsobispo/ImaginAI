@@ -14,10 +14,7 @@ func WithUser(next http.Handler) http.Handler {
 			return
 		}
 
-		user := models.AuthenticatedUser{
-			Email:    "a@a.com",
-			LoggedIn: true,
-		}
+		user := models.AuthenticatedUser{}
 		ctx := context.WithValue(r.Context(), models.UserContextKey, user)
 		next.ServeHTTP(w, r.WithContext(ctx))
 	}
